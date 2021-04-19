@@ -1,0 +1,126 @@
+var readlineSync = require('readline-sync');
+
+var score = 0;
+var userName = readlineSync.question("What is your name: ");
+console.log("Hi " + userName + ", I am Veekshith Thoram!");
+console.log("Lets play a small quiz to test your knowledge");
+var agree = readlineSync.question("Type Y for yes and N for no: ");
+
+if(agree === "Y"){
+  var cricketQuestions = [
+  {question:"Who is the coolest captain in Indian Cricket?",
+  answer:"Dhoni"},
+  {question:"Who scored three doubled hundreds?",
+  answer:"Rohit Sharma"},
+  {question: "Which country won the 2011 Cricket World cup?",
+  answer:"India"},
+  {question:"Which player is called as the Master Blaster?",
+  answer:"Sachin Ramesh Tendulkar"},
+  {question:"Full form of IPL?",
+  answer:"Indian Premier League"}
+  ];
+  
+ for(var i = 0; i<cricketQuestions.length;i++){
+    var currentQuestion = cricketQuestions[i];
+    play(currentQuestion.question,currentQuestion.answer);
+  }
+  
+
+
+//Round 2
+if(score ===5){
+  console.log("You are qualified for the next Round!!");
+  console.log("Now the difficulty Increases");
+  var proQuestions = [
+    {
+      question:"Who is the Founder of language C?",
+      answer: "Dennis Ritchie"
+    },
+    {
+      question:"Who is the founder of Facebook?",
+      answer: "Mark Zuckerberg"
+    },
+    {
+      question:"What is the fullform of OOP?",
+      answer:"Object Oriented Programming"
+    },
+    {
+      question:"Who is the founder of Microsoft?",
+      answer:"Bill Gates"
+    },
+    {
+      question: "Who is the founder of Apple Inc.?",
+      answer:"Steve Jobs"
+    }];
+     
+    for(var i = 0; i<proQuestions.length;i++){
+    var currentQuestion = proQuestions[i];
+    play(currentQuestion.question,currentQuestion.answer);
+    }
+
+    //ROund 3
+     if (score === 10){
+    console.log("You are qualified for the final round!!");
+    console.log("Now the quiz will be about F.R.I.E.N.D.S show!!");
+    var agree1 = readlineSync.question("Do you want to continue??");
+    if (agree1 === "YES"){
+      var friQuestions = [{
+        question:"How many seasons are there in FRIENDS?",
+        answer:"10"
+      },
+      {
+        question:"How many marriages did ROSS have?",
+        answer:"3"
+      },
+      {
+        question:"How does Joey flirt with girls?",
+        answer:"How you Doin?"
+      },
+      {
+        question:"Where does Racheal work?",
+        answer:"Ralph Lauren"
+      },
+      {
+        question:"What is the name of show in which Joey got famous?",
+        answer:"Days of our lives"
+      }];
+      
+    for(var i = 0; i<friQuestions.length;i++){
+    var currentQuestion = friQuestions[i];
+    play(currentQuestion.question,currentQuestion.answer);
+    }
+  }
+
+}
+  }
+ 
+
+var totalScore = score;
+console.log("Your total score is: ",totalScore);
+
+
+} else {
+  console.log("Its ok if you are not interested. Have anice day!");
+}
+
+function play(question,answer){
+  var userAnswer = readlineSync.question(question);
+  if (userAnswer.toUpperCase() === answer.toUpperCase()){
+    console.log("You are Right!!");
+    score = score + 1; 
+  } else {
+    console.log("You are wrong!!");
+
+  }
+  console.log("Current score is: ",score);
+  console.log("---------------")
+
+}
+
+
+
+
+
+
+
+ 
